@@ -47,8 +47,8 @@ The Vaccine Management System is an enterprise-grade application designed for he
 
 1. **Repository Acquisition**:
    ```bash
-   git clone https://github.com/organization/vaccine-management-system.git
-   cd vaccine-management-system
+   git clone [https://github.com/organization/vaccine-management-system.git](https://github.com/sou060/Vaccine-Project.git)
+   cd Vaccine-Project
    ```
 
 2. **Build Process**:
