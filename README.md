@@ -12,6 +12,7 @@
     <a href="#getting-started">Getting Started</a> •
     <a href="#api-documentation">API Documentation</a> •
     <a href="#development">Development</a> •
+    <a href="#testing">Testing</a> •
     <a href="#deployment">Deployment</a> •
     <a href="#license">License</a>
   </p>
@@ -19,6 +20,7 @@
   <img src="https://img.shields.io/badge/Java-21-orange" alt="Java 21" />
   <img src="https://img.shields.io/badge/Spring%20Boot-3.1.0-brightgreen" alt="Spring Boot 3.1.0" />
   <img src="https://img.shields.io/badge/MySQL-8.0-blue" alt="MySQL 8.0" />
+  <img src="https://img.shields.io/badge/JUnit5-5.9.2-red" alt="JUnit 5.9.2" />
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License MIT" />
 </div>
 
@@ -31,6 +33,7 @@ Vaccine Management System is a robust, enterprise-ready web application designed
 - **Comprehensive Vaccine Management**
   - Create, retrieve, update, and delete vaccine records
   - Track detailed vaccine information including name, description, type, and manufacturer
+  - Filter vaccines by company name for specific data insights
   
 - **Intuitive User Interface**
   - Clean, professional design with modern UI components
@@ -39,12 +42,12 @@ Vaccine Management System is a robust, enterprise-ready web application designed
   
 - **Enterprise-Grade Architecture**
   - Multi-layered architecture with separation of concerns
-  - Service-oriented design for scalability and maintainability
+  - Interface-driven service design for scalability and maintainability
   - Transactional data integrity with database-level consistency
 
 - **Performance Optimized**
   - Efficient data fetching with optimized database queries
-  - Pagination for large datasets
+  - Stream-based filtering for improved memory performance
   - Minimal resource footprint
 
 ## Technology Stack
@@ -68,10 +71,23 @@ Vaccine Management System is a robust, enterprise-ready web application designed
 - **Hibernate ORM**: Object-relational mapping
 - **Connection Pooling**: HikariCP for efficient connections
 
-### DevOps & Quality
-- **JUnit 5**: Unit and integration testing
-- **SLF4J/Logback**: Comprehensive application logging
-- **Maven Profiles**: Environment-specific configurations
+### Testing & Quality Assurance
+- **JUnit 5**: 
+  - Comprehensive testing framework for unit and integration tests
+  - Jupiter API for modern test authoring
+  - Parameterized tests for data-driven testing
+  - Assertions for thorough verification
+  - Lifecycle management with @BeforeEach, @AfterEach annotations
+
+- **Spring Boot Test**: 
+  - Integration testing with application context
+  - MockMVC for controller testing
+  - TestRestTemplate for API testing
+
+- **SLF4J/Logback**: 
+  - Comprehensive application logging
+  - Configurable log levels and formats
+  - Rolling file appenders for log management
 
 ## Architecture
 
