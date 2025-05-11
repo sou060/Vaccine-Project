@@ -1,12 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Vaccine</title>
     <style>
     :root {
         --primary-color: #2196F3;
+        --secondary-color: #FFC107;
         --danger-color: #f44336;
         --success-color: #4CAF50;
         --background-color: #f5f5f5;
@@ -34,6 +38,37 @@
         padding: 30px;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 8px;
+    }
+
+    .navigation {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .navigation a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .navigation a:hover {
+        color: var(--secondary-color);
     }
 
     h2 {
@@ -123,6 +158,12 @@
         input[type="text"] {
             padding: 10px;
         }
+        
+        .navigation {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
     }
 
     @media screen and (max-width: 480px) {
@@ -156,11 +197,24 @@
         input[type="text"] {
             font-size: 0.9rem;
         }
+        
+        .header h1 {
+            font-size: 1.5rem;
+        }
     }
 </style>
 </head>
 <body>
     <div class="container">
+        <div class="header">
+            <h1>Vaccine Management System</h1>
+        </div>
+        
+        <div class="navigation">
+            <a href="${pageContext.request.contextPath}/show-vaccine">View All Vaccines</a>
+            <a href="${pageContext.request.contextPath}/registerVaccine">Register New Vaccine</a>
+        </div>
+        
         <h2>Update Vaccine Details</h2>
         
         <%--@elvariable id="vaccine" type="crmapp"--%>
@@ -186,10 +240,11 @@
                 <label>Company:</label>
                 <form:input path="vaccineCompany" type="text"/>
             </div>
-        <div class="form-group">
-          <input type="submit" value="Update Vaccine" class="submit-btn"/>
-          <a href="${pageContext.request.contextPath}/show-vaccine" class="cancel-btn">Cancel</a>
-        </div>
+            
+            <div class="form-group button-group">
+                <input type="submit" value="Update Vaccine" class="submit-btn"/>
+                <a href="${pageContext.request.contextPath}/show-vaccine" class="cancel-btn">Cancel</a>
+            </div>
         </form:form>
     </div>
 </body>

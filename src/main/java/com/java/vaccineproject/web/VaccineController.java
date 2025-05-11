@@ -22,6 +22,11 @@ public class VaccineController {
         this.iSerivce = iSerivce;
     }
     
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/show-vaccine";
+    }
+    
     @GetMapping("/registerVaccine")
     public String showRegistrationForm(Model model) {
         model.addAttribute("vaccine", new Vaccine());
@@ -34,12 +39,14 @@ public class VaccineController {
         iSerivce.addVaccine(vaccine);
         return "registerVaccine";
     }
+    
     @GetMapping("/show-vaccine")
     public String getVaccines(Model model) {
-        List<Vaccine>vaccines=iSerivce.getVaccines();
-        model.addAttribute("vaccine",vaccines);
+        List<Vaccine> vaccines = iSerivce.getVaccines();
+        model.addAttribute("vaccine", vaccines);
         return "show-vaccine";
     }
+    
     @GetMapping("/updateVaccine")
     public String updateVaccineForm(@RequestParam("vaccineId") Integer id, Model model) {
         Vaccine vaccine = iSerivce.fetchVaccineById(id);
@@ -48,26 +55,22 @@ public class VaccineController {
             return "updateVaccine";
         }
         return "redirect:/show-vaccine";
-
-
     }
+    
     @PostMapping("/updateVaccine")
     public String processUpdateVaccine(@ModelAttribute Vaccine vaccine, Model model) {
         if (vaccine != null) {
-            // Update the vaccine
-            iSerivce.addVaccine(vaccine);  // or updateVaccine() if you have one
+            iSerivce.addVaccine(vaccine);
             return "redirect:/show-vaccine";
         }
         return "redirect:/show-vaccine";
     }
+    
     @PostMapping("/deleteVaccine")
-    public String deleteVaccine(@ModelAttribute Vaccine vaccine, Model model) {
-        if (vaccine != null) {
-            // Update the vaccine
-            iSerivce.deleteVaccine(vaccine.getVaccineId());  // or updateVaccine() if you have one
-            return "redirect:/show-vaccine";
+    public String deleteVaccine(@RequestParam("vaccineId") Integer vaccineId) {
+        if (vaccineId != null) {
+            iSerivce.deleteVaccine(vaccineId);
         }
         return "redirect:/show-vaccine";
-
     }
 }
