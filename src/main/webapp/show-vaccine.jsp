@@ -257,10 +257,6 @@
                 </tbody>
             </table>
         </div>
-        
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="${pageContext.request.contextPath}/registerVaccine" class="register-btn">Register New Vaccine</a>
-        </div>
     </div>
 </body>
 </html>

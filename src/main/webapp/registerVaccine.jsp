@@ -182,7 +182,6 @@
         
         <div class="navigation">
             <a href="${pageContext.request.contextPath}/show-vaccine">View All Vaccines</a>
-            <a href="${pageContext.request.contextPath}/registerVaccine">Register New Vaccine</a>
         </div>
         
         <h2>Register New Vaccine</h2>
